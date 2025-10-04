@@ -14,6 +14,13 @@ public class AiToolImportController {
     @Autowired
     private AiToolImportService aiToolImportService;
 
+    // ✅ Health check endpoint
+    @GetMapping("/health")
+    public ResponseEntity<String> healthCheck() {
+        return ResponseEntity.ok("✅ AI Directory backend is up and running!");
+    }
+
+    // ✅ Import Excel endpoint
     @PostMapping
     public ResponseEntity<String> importAiTools(@RequestParam("file") MultipartFile file) {
         if (file.isEmpty()) {
