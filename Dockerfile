@@ -1,17 +1,20 @@
-# Use official OpenJDK 17 image
+# Use official OpenJDK image
 FROM openjdk:17-jdk-slim
 
-# Set working directory inside the container
+# Install Maven
+RUN apt-get update && apt-get install -y maven
+
+# Set working directory
 WORKDIR /app
 
-# Copy everything from your local project to the container
+# Copy project files
 COPY . .
 
-# Build the Spring Boot app (using Maven Wrapper if present)
-RUN ./mvnw clean package -DskipTests || mvn clean package -DskipTests
+# Build the Spring Boot app
+RUN mvn clean package -DskipTests
 
-# Expose port 8080 for the app
+# Expose port 8080
 EXPOSE 8080
 
-# Run the built Spring Boot jar
+# Run the app
 CMD ["java", "-jar", "target/*.jar"]
