@@ -41,8 +41,8 @@ public class AiTool {
     @Column(name = "premium_features_summary", columnDefinition = "TEXT")
     private String premiumFeaturesSummary;
 
-    @Column(name = "starting_price", precision = 10, scale = 2)
-    private BigDecimal startingPrice;
+    @Column(name = "starting_price")
+    private String startingPrice;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt = LocalDateTime.now();
@@ -130,10 +130,10 @@ public class AiTool {
         this.premiumFeaturesSummary = premiumFeaturesSummary;
     }
 
-    public BigDecimal getStartingPrice() {
+    public String getStartingPrice() {
         return startingPrice;
     }
-    public void setStartingPrice(BigDecimal startingPrice) {
+    public void setStartingPrice(String startingPrice) {
         this.startingPrice = startingPrice;
     }
 
