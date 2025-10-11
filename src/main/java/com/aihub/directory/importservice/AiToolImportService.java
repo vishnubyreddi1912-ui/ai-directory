@@ -92,7 +92,7 @@ public class AiToolImportService {
                     // Parse price
                     if (!priceStr.isBlank()) {
                         try {
-                            aiTool.setStartingPrice(new BigDecimal(priceStr));
+                            aiTool.setStartingPrice(new String(priceStr));
                         } catch (NumberFormatException e) {
                             errors.add("Row " + rowNum + " (" + name + "): Invalid price '" + priceStr + "'.");
                         }

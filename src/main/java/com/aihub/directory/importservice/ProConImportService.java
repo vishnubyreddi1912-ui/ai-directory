@@ -59,7 +59,8 @@ public class ProConImportService {
                 importedCount++;
             }
 
-            return "✅ Imported " + importedCount + " pros/cons successfully.";
+            StringBuilder result = new StringBuilder("✅ Successfully imported pros and cons.\n");
+            return result.toString();
 
         } catch (Exception e) {
             e.printStackTrace();

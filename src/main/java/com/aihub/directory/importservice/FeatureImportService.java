@@ -59,7 +59,8 @@ public class FeatureImportService {
                 importedCount++;
             }
 
-            return "✅ Imported " + importedCount + " features successfully.";
+            StringBuilder result = new StringBuilder("✅ Successfully imported Features.\n");
+            return result.toString();
 
         } catch (Exception e) {
             e.printStackTrace();
