@@ -1,6 +1,5 @@
 package com.aihub.directory.dto;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class AiToolDto {
     private Boolean hasPremiumPlan;
     private String freeFeaturesSummary;
     private String premiumFeaturesSummary;
-    private BigDecimal startingPrice;
+    private String startingPrice;
     private Long categoryId;
     private String categoryName;
 
@@ -25,10 +24,9 @@ public class AiToolDto {
     // Constructors
     public AiToolDto() {}
 
-    public AiToolDto(Long id, String name, String description, LocalDate releaseDate, String websiteUrl,
-                     String pricingModel, Boolean hasFreePlan, Boolean hasPremiumPlan, String freeFeaturesSummary,
-                     String premiumFeaturesSummary, BigDecimal startingPrice, Long categoryId, String categoryName,
-                     List<FeatureDto> features, List<ProConDto> prosCons) {
+    public AiToolDto(Long id, String name, String description, String websiteUrl,
+                     String pricingModel, String freeFeaturesSummary,
+                     String premiumFeaturesSummary) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -77,8 +75,8 @@ public class AiToolDto {
     public String getPremiumFeaturesSummary() { return premiumFeaturesSummary; }
     public void setPremiumFeaturesSummary(String premiumFeaturesSummary) { this.premiumFeaturesSummary = premiumFeaturesSummary; }
 
-    public BigDecimal getStartingPrice() { return startingPrice; }
-    public void setStartingPrice(BigDecimal startingPrice) { this.startingPrice = startingPrice; }
+    public String getStartingPrice() { return startingPrice; }
+    public void setStartingPrice(String startingPrice) { this.startingPrice = startingPrice; }
 
     public Long getCategoryId() { return categoryId; }
     public void setCategoryId(Long categoryId) { this.categoryId = categoryId; }

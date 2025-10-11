@@ -133,6 +133,7 @@ public class AiTool {
     public String getStartingPrice() {
         return startingPrice;
     }
+
     public void setStartingPrice(String startingPrice) {
         this.startingPrice = startingPrice;
     }
