@@ -32,6 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 
-# Ignore secrets
+# Ignore secrets and environment configs
 src/main/resources/application.properties
-
+.env
