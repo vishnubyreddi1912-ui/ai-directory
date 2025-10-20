@@ -19,8 +19,8 @@ public class SecurityConfig {
     private static final List<String> ALLOWED_EMAILS = List.of(
             "vishnu@gmail.com",
             "vishnubyreddi11@gmail.com",
-            "Vudathupavankalyan2206@gmail.com",
-            "vudathupavankalyan2206@gmail.com"
+            "Vudathupavankalyan@gmail.com",
+            "vudathupavankalyan@gmail.com"
     );
 
     @Bean
