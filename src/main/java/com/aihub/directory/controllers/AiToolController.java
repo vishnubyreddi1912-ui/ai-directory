@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin("*")
@@ -69,4 +70,23 @@ public class AiToolController {
 
         return ResponseEntity.ok(result);
     }
+
+    @GetMapping("/all-ais")
+    public List<AiToolDto> getAIList() {
+        List<AiTool> toolOpt = aiToolRepository.findAll();
+
+        List<AiToolDto> dto = AiToolMapper.toDtoList(toolOpt);
+        return dto;
+    }
+
+    @GetMapping("/all-ais-names")
+    public ResponseEntity<List<String>> getAllAiNames() {
+        List<String> aiNames = aiToolRepository.findAll()
+                .stream()
+                .map(AiTool::getName)
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(aiNames);
+    }
+
 }
