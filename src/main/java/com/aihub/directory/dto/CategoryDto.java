@@ -7,7 +7,8 @@ public class CategoryDto {
     private Long id;
     private String name;
     private int aiCount;
-    private List<AiToolDto> aiTools; // ✅ Added — holds the list of AI tools in this category
+    private List<AiToolDto> aiTools;// ✅ Added — holds the list of AI tools in this category
+    private List<String> websiteUrls;
 
     // Constructors
     public CategoryDto() {}
@@ -52,5 +53,13 @@ public class CategoryDto {
     }
     public void setAiTools(List<AiToolDto> aiTools) {
         this.aiTools = aiTools;
+    }
+
+    public List<String> getWebsiteUrls() {
+        return websiteUrls;
+    }
+
+    public void setWebsiteUrls(List<String> websiteUrls) {
+        this.websiteUrls = websiteUrls;
     }
 }
