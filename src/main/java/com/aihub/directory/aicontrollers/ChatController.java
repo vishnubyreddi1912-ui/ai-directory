@@ -17,7 +17,9 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/chat")
 @CrossOrigin(origins = {
         "http://localhost:4200",
-        "https://ai-directory-1.onrender.com"
+        "https://ai-directory-1.onrender.com",
+        "https://reliable-douhua-37a8a0.netlify.app",
+
 })
 public class ChatController {
 
@@ -38,7 +40,6 @@ public class ChatController {
         🎯 Purpose:
         You are trained *only* on the AIHub Directory data provided below.
         This data contains just AI tool names and their categories.
-        You must strictly limit your answers to this information.
         You cannot generate or assume details like features, pricing, or pros/cons unless clearly stated in the data.
 
         ⚙️ Rules:
