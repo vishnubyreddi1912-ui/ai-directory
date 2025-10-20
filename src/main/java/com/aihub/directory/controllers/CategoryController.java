@@ -1,12 +1,18 @@
 package com.aihub.directory.controllers;
 
+import com.aihub.directory.dto.AiToolDto;
 import com.aihub.directory.dto.CategoryDto;
+import com.aihub.directory.entities.AiTool;
 import com.aihub.directory.entities.Category;
 import com.aihub.directory.mapper.AiToolMapper;
 import com.aihub.directory.mapper.CategoryMapper;
 import com.aihub.directory.repositories.CategoryRepository;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -46,4 +52,20 @@ public class CategoryController {
 
         return dto;
     }
+
+    @GetMapping("getnames/{id}")
+    public ResponseEntity<List<String>> getAiNamesBasedOnCategory(@PathVariable Long id) {
+        Category category = categoryRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Category not found with ID: " + id));
+
+        List<String> aiNames = category.getAiTools() != null
+                ? category.getAiTools()
+                .stream()
+                .map(AiTool::getName)
+                .collect(Collectors.toList())
+                : Collections.emptyList();
+
+        return ResponseEntity.ok(aiNames);
+    }
+
 }
