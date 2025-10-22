@@ -20,7 +20,11 @@ public class SecurityConfig {
             "vishnu@gmail.com",
             "vishnubyreddi11@gmail.com",
             "Vudathupavankalyan@gmail.com",
-            "vudathupavankalyan@gmail.com"
+            "vudathupavankalyan@gmail.com",
+            "Gopalvudathu3012@gmail.com",
+            "gopalvudathu3012@gmail.com",
+            "byreddi.sricharan@gmail.com",
+            "Byreddi.sricharan@gmail.com"
     );
 
     @Bean
