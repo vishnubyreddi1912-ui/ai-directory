@@ -89,4 +89,13 @@ public class AiToolController {
         return ResponseEntity.ok(aiNames);
     }
 
+    @GetMapping("/all-ais-websites")
+    public ResponseEntity<List<String>> getAllAiWebsites() {
+        List<String> aiNames = aiToolRepository.findAll()
+                .stream()
+                .map(AiTool::getWebsiteUrl)
+                .collect(Collectors.toList());
+
+        return ResponseEntity.ok(aiNames);
+    }
 }
