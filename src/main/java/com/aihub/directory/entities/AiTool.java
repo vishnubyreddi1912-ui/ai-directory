@@ -59,6 +59,9 @@ public class AiTool {
     @OneToMany(mappedBy = "aiTool", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ProCon> prosCons;
 
+    @OneToMany(mappedBy = "aiTool", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Rating> ratings;
+
     // Getters and Setters
     public Long getId() {
         return id;
@@ -165,4 +168,27 @@ public class AiTool {
     public void setProsCons(List<ProCon> prosCons) {
         this.prosCons = prosCons;
     }
+
+
+    public List<Rating> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(List<Rating> ratings) {
+        this.ratings = ratings;
+    }
+    @Transient
+    public double getAverageRating() {
+        if (ratings == null || ratings.isEmpty()) return 0.0;
+        return ratings.stream()
+                .mapToDouble(r -> r.getRatingValue().doubleValue())
+                .average()
+                .orElse(0.0);
+    }
+
+    @Transient
+    public int getReviewCount() {
+        return ratings != null ? ratings.size() : 0;
+    }
+
 }

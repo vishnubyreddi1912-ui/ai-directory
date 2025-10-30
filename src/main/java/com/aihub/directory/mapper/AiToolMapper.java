@@ -13,16 +13,18 @@ public class AiToolMapper {
 
     public static AiToolDto toDto(AiTool tool) {
         if (tool == null) return null;
+        String averageRating = String.format("%.1f", tool.getAverageRating());
+        String reviewCount = tool.getReviewCount() + " reviews";
 
-        // You can replace rating and reviews with actual data if you store them later
         return new AiToolDto(
                 tool.getId(),
                 tool.getName(),
                 tool.getDescription(),
-                tool.getWebsiteUrl(), // icon
-                "4.8", // mock rating for now
-                "500 reviews", // mock reviews for now
-                tool.getPricingModel()
+                tool.getWebsiteUrl(),
+                averageRating,
+                reviewCount,
+                tool.getPricingModel(),
+                tool.getReleaseDate()
         );
     }
 

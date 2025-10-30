@@ -9,7 +9,7 @@ public class AiToolDto {
     private String description;
     private LocalDate releaseDate;
     private String websiteUrl;
-    private String pricingModel;
+    private String rating;
     private Boolean hasFreePlan;
     private Boolean hasPremiumPlan;
     private String freeFeaturesSummary;
@@ -17,31 +17,32 @@ public class AiToolDto {
     private String startingPrice;
     private Long categoryId;
     private String categoryName;
-
+    private String reviewsCount;
     private List<FeatureDto> features;
     private List<ProConDto> prosCons;
-
+    private String pricingModel;
     // Constructors
     public AiToolDto() {}
 
     public AiToolDto(Long id, String name, String description, String websiteUrl,
-                     String pricingModel, String freeFeaturesSummary,
-                     String premiumFeaturesSummary) {
+                     String rating, String reviewsCount,
+                     String pricingModel,LocalDate releaseDate) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.releaseDate = releaseDate;
         this.websiteUrl = websiteUrl;
-        this.pricingModel = pricingModel;
+        this.rating = rating;
         this.hasFreePlan = hasFreePlan;
         this.hasPremiumPlan = hasPremiumPlan;
-        this.freeFeaturesSummary = freeFeaturesSummary;
+        this.reviewsCount = reviewsCount;
         this.premiumFeaturesSummary = premiumFeaturesSummary;
         this.startingPrice = startingPrice;
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.features = features;
         this.prosCons = prosCons;
+        this.pricingModel= pricingModel;
     }
 
     // Getters and Setters
@@ -89,4 +90,20 @@ public class AiToolDto {
 
     public List<ProConDto> getProsCons() { return prosCons; }
     public void setProsCons(List<ProConDto> prosCons) { this.prosCons = prosCons; }
+
+    public String getReviewsCount() {
+        return reviewsCount;
+    }
+
+    public void setReviewsCount(String reviewsCount) {
+        this.reviewsCount = reviewsCount;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
 }
